@@ -1,5 +1,8 @@
 package com.sabel.rate;
 
+import com.sabel.threads.Thread1;
+import com.sabel.threads.Thread2;
+
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
@@ -7,7 +10,7 @@ import javax.json.stream.JsonParser;
 import java.io.*;
 import java.net.*;
 
-public class httpClient {
+public class HttpClientRate {
 
 
     public static void main(String[] args) throws IOException {
@@ -38,15 +41,12 @@ public class httpClient {
             System.out.println(jsonObject.toString());
             JsonObject fx_rates = jsonObject.getJsonObject("fx_rates");
             System.out.println(fx_rates.getString("eur"));
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
-          is.close();
+            is.close();
         }
 
         JsonParser jsonParser = Json.createParser(new StringReader(json));
-
-
     }
-
 }
